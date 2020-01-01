@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Alien Abduction Order Form</title>
+	<link href="css/forms.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="wrapper">
+		<section>
+			<h1>Alien Abduction Order Form</h1>
+			<p>Fill out the form below to place an order for an alien abduction by one of our fine UFOs.</p>
+			
+			<form action="https://e3vwdl4bpd.execute-api.us-west-2.amazonaws.com/default/API2SES" method="POST"><!--Backend team will provide that action in most cases unless the dev itself knows how to perform the "action" correctly. "method" refers to how the info in the form is transmitted to the server. "GET" and "POST" are the two most common methodologies used. "GET" sends the info over the URL and "POST" sends it behind the scenes.-->
+				<input type="hidden" name="send_to" value="agalanc89@gmail.com"><!--"id" isn't required nor a label tag simply because it doesn't need to be accesible-->
+
+				<fieldset>
+					<legend>Your contact information</legend><!--legend is used to say what a particular fieldset is doing, in this case the fieldset is describing the information needed to correctly process this form. Another way to look at legend is like a title for a fieldset. It always appear inside of a fieldset-->
+						<label for="name">Your name</label>
+							<input type="text" id="name" name="name"> <!--not necessary to match the input for id, name, and for. It is just an option on doing things. In this case id will be used with the label tag. The name attribute is going to be associated with the processing script(backend), in other words the server needs the name field to do what it needs to do. The name field for the most part needs to be inique as well, like the id field, to avoid confusion on the backend-->
+						<label for="phone">Phone number</label>
+							<input type="tel" id="phone" name="phone" placeholder="Don't forget area code"><!--placeholder is used when you want to show something in a specific field by default-->
+						<label for="email">Email</label>
+							<input type="email" id="email" name="email">
+				</fieldset>
+
+				<fieldset>
+					<legend>About your abduction</legend>
+						<label for="date">Requested date</label>
+							<input type="date" id="date" name="date">
+						<label for="qty">How many people would you like abducted?</label>
+							<input type="number" id="qty" name="qty" min="1" max="10"><!--min refers to the minimum number of options available and max to the maximum number of options available-->
+
+					<p>What type of UFO do you prefer?</p>
+					<label>
+						<input type="radio" name="ufotype" value="classic" checked> Classic oval UFO
+					</label>
+					<label>
+						<input type="radio" name="ufotype" value="starwars"> Star Wars-style Imperial cruiser
+					</label>
+					<label>
+						<input type="radio" name="ufotype" value="battlestar"> Battlestar Galactica-style Viper
+					</label>
+					<label>
+						<input type="radio" name="ufotype" value="borg"> Borg-style cube
+					</label>
+					<!--in this case the name value stays the same because that is what groups the options of the radio list together, in other words, like an UL or OL, if the name input it's not the same for all items, the radio buttons will not work properly as a radio button list. The value input does changes because it should be unique from the other options, for example, in a list it is not common to use two identical options-->
+
+					<label for="abtype">What type of abduction experience do you want?</label>
+						<select id="abtype" name="abtype">
+							<option selected>Select one...</option>
+							<option value="Tour">Tour of the solar system</option>
+							<option value="dinner">Alien dinner and discussion</option>
+							<option value="dance">Alien dance lessons</option>
+							<option value="whales">Whale watching</option>
+						</select><!--In all these scenarios we use id exclusively into a form to work with the label tag only. The value of id and the value of for, for attribute in the label tag must be the same. The attribute name is for backend processing. The value attribute is the actual value of whatever it is its referring to-->
+
+					<label for="comments">Special requests:</label>
+					<textarea id="comments" name="comments" placeholder="Tell me everything..."></textarea><!--In this situation we do not need the value attribute because whatever the user is going to type, that will be the value itself-->
+
+					<label>
+						<input type="checkbox" value="subscribe" name="subscribe" checked> Add me to your email list
+					</label><!--The "checked" property will check the checkbox by defaul. The "id" it's not necessary in this situation because when the whole "label" wraps around the whole unit, like in this example, the "for" attribute in the label tag it's irrelevant. Although, when we have the label tag separated from the actual widget, sort of speak, that connection of "id" and "for" it's necessary. Now, if indeed "for" and "id" gets added in this scenario it will not break anything whatsoever but once again it is not necessary or required-->
+				</fieldset>
+				<button type="submit">Submit</button><!--No "id" because there is not label tag. No "name" because the button has nothing to do with any values trying to be process on the server, it is only sending info over. Therefore, there's also no "value" for the button-->
+			</form>				
+		</section>
+		<aside>
+			<h3>Our Location</h3>
+			<address>
+				Frontend Masters &middot;
+				60 South 6th Street &middot;
+				Suite 3625 &middot;
+				Minneapolis, MN 55402
+			</address>
+		</aside>
+	</div>
+	<script src="js/forms.js"></script><!--This script will display error messages more professionally. Typically JS links, like this one, go either in the head of the document or at the very bottom just before the closing body tag-->
+</body>
+</html>
+
+
+
+
+

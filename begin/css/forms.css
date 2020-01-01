@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-image: url(../img/galaxy.jpg);
+}
+.wrapper {
+	width: 80%;
+	margin: 0 auto;
+	padding: 1em;
+	display: flex;
+	flex-flow: row nowrap;
+	background-color: #11A509;
+}
+fieldset {
+	border: 1px solid #111;
+	border-radius: 10px;
+	margin-bottom: 2rem;
+	margin-top: 1.5rem;
+}
+legend {
+	border: px solid red;
+	font-weight: bold;
+	font-size: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+label {
+	border: px solid red;
+	display: block;
+}
+textarea {
+	height: 10rem;
+	padding: 1rem;
+}
+select {
+	font-size: 1rem;
+}
+button {
+	font-size: 1rem;
+	margin: 2rem 0;
+	background-color: #bb342f;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+}
+button:hover {
+	background-color: white;
+	color: red;
+}
+input:not([type="radio"]):not([type="checkbox"]), textarea, select {
+	border: px solid red;
+	display: block;
+	margin-bottom: 2rem;
+	width: 20rem;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	padding: 0 1rem;
+	border-radius: 10px;
+	border: none;
+}/*In this case by adding for example ":not([type="radio"]):not([type="checkbox"])", it means we want all of these styles apply to all inputs and the textarea but not to inputs with the attribute "type="radio"" and with the atrribute "type="checkbox"". Everytime there's "[]" used it indicates an attribute selector is being target/selected. Setting "border" to none will eliminate the 3D looking effects*/
+p, [for="abtype"] {
+	margin-bottom: 0;
+	margin-top: 2rem;
+}/*In this case this could have been done by creating a class in the HTML whereever necessary, in this situation inside the "label" where abtype is located, but this is another way of doing things without extra code, so we used an atrribute selector instead.*/
+section {
+	flex-basis: 57%;
+	margin-right: 10%;
+}
+aside {
+	flex-basis: 33%;
+}
